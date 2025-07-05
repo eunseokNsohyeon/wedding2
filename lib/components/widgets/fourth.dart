@@ -17,7 +17,13 @@ class FourthWidget extends StatelessWidget {
           _FirstImage(),
           SizedBox(height: 20),
           _SecondImage(),
+          SizedBox(height: 25),
           _MapButton(),
+          Text(
+            '원하시는 앱을 선택하시면 지도가 열립니다',
+            style: TextStyle(color: TEXT_COLOR, fontSize: 12.0),
+          ),
+          SizedBox(height: 50),
           _ThirdImage(),
         ],
       ),
@@ -119,15 +125,15 @@ class _MapButton extends StatelessWidget {
   onTapNaverMap() async => await launchUrl(Uri.parse(naverAddress));
 
   final kakaoAddress =
-      'https://map.kakao.com/?urlX=485337.99999999785&urlY=1079220.9999999998&urlLevel=3&itemId=877653040&q=%EC%9B%A8%EB%94%A9%EA%B7%B8%EB%A3%B9%20%EC%9C%84%EB%8D%94%EC%8A%A4%20%EC%95%88%EC%96%91&srcid=877653040&map_type=TYPE_MAP';
+      'https://map.kakao.com/?urlX=485337.99999999785&urlY=1079220.9999999998&urlLevel=3&itemId=877653040&q=%EC%9B%A8%EB%94%A9%EA%B7%B8%EB%A3%B9%20%EC%9C%84%EB%8D%94%EC%8A%A4%20%EC%95%88%EC%96%91&srcid=877653040';
   onTapKakaoMap() async => await launchUrl(Uri.parse(kakaoAddress));
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
       width: double.infinity,
-      height: 120,
+      height: 60,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
