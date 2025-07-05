@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wedding/components/widgets/bar.dart';
+import 'package:wedding/components/widgets/contact.dart';
+import 'package:wedding/components/widgets/gallery.dart';
 import 'package:wedding/constants/color.dart';
+import 'package:wedding/models/account_tile_model.dart';
 
 class FourthWidget extends StatelessWidget {
   const FourthWidget({super.key});
@@ -25,6 +29,35 @@ class FourthWidget extends StatelessWidget {
           ),
           SizedBox(height: 50),
           _ThirdImage(),
+          SizedBox(height: 80),
+          _FourthImage(),
+          SizedBox(height: 50),
+          BarWidget(),
+          FamilyContact(
+            division: '신랑',
+            name: '최인권',
+            accountInfoList: groomFamilyInfo,
+          ),
+          BarWidget(),
+          FamilyContact(
+            division: '신부',
+            name: '안소현',
+            accountInfoList: brideFamilyInfo,
+          ),
+          BarWidget(),
+          SizedBox(height: 80),
+          _GalleryImage(),
+          Gallery(),
+          SizedBox(height: 40),
+          BarWidget(),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: Text(
+              '함께 해주신 모든 분들께 감사드립니다.',
+              style: TextStyle(color: TEXT_COLOR, fontSize: 14.0),
+            ),
+          ),
+          BarWidget(),
         ],
       ),
     );
@@ -155,5 +188,19 @@ class _ThirdImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset('assets/images/fourth_03.jpg', fit: BoxFit.cover);
+  }
+}
+
+class _FourthImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/fourth_04.jpg', fit: BoxFit.cover);
+  }
+}
+
+class _GalleryImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/gallery.jpg', fit: BoxFit.cover);
   }
 }
