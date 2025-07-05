@@ -157,8 +157,7 @@ class _MapButton extends StatelessWidget {
       'https://map.naver.com/p/entry/place/34585318?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507052126&locale=ko&svcName=map_pcv5&searchType=place&lng=126.9340682&lat=37.3845205&c=15.00,0,0,0,dh';
   onTapNaverMap() async => await launchUrl(Uri.parse(naverAddress));
 
-  final kakaoAddress =
-      'https://map.kakao.com/?urlX=485337.99999999785&urlY=1079220.9999999998&urlLevel=3&itemId=877653040&q=%EC%9B%A8%EB%94%A9%EA%B7%B8%EB%A3%B9%20%EC%9C%84%EB%8D%94%EC%8A%A4%20%EC%95%88%EC%96%91&srcid=877653040';
+  final kakaoAddress = 'https://place.map.kakao.com/877653040';
   onTapKakaoMap() async => await launchUrl(Uri.parse(kakaoAddress));
 
   @override
