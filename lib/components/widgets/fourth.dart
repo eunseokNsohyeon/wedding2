@@ -1,0 +1,153 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:wedding/constants/color.dart';
+
+class FourthWidget extends StatelessWidget {
+  const FourthWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: PRIMARY_COLOR,
+      padding: const EdgeInsets.symmetric(vertical: 80),
+      child: Column(
+        children: [
+          _DDay(),
+          SizedBox(height: 20),
+          _FirstImage(),
+          SizedBox(height: 20),
+          _SecondImage(),
+          _MapButton(),
+          _ThirdImage(),
+        ],
+      ),
+    );
+  }
+}
+
+class _DDay extends StatelessWidget {
+  const _DDay();
+
+  @override
+  Widget build(BuildContext context) {
+    final now = DateUtils.dateOnly(DateTime.now());
+    final weddingDay = DateTime(2025, 9, 6);
+
+    final isToday = weddingDay.isAtSameMomentAs(now);
+    final isBefore = weddingDay.isAfter(now);
+
+    final text = isToday
+        ? ' 오늘 결혼합니다'
+        : isBefore
+        ? ''
+        : ' Welcome 유부월드';
+
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: '은석 & 소현',
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.0,
+              color: TEXT_COLOR,
+            ),
+            children: [
+              TextSpan(
+                text: text,
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16.0,
+                  color: TEXT_COLOR,
+                ),
+              ),
+              !isToday && isBefore
+                  ? TextSpan(
+                      text: ' 의 결혼식까지',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.0,
+                        color: TEXT_COLOR,
+                      ),
+                    )
+                  : const TextSpan(),
+              !isToday && isBefore
+                  ? TextSpan(
+                      text: ' ${weddingDay.difference(now).inDays}일',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18.0,
+                        color: TEXT_COLOR,
+                      ),
+                    )
+                  : const TextSpan(),
+              !isToday && isBefore
+                  ? TextSpan(
+                      text: ' 남았습니다.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.0,
+                        color: TEXT_COLOR,
+                      ),
+                    )
+                  : const TextSpan(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FirstImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/fourth_01.jpg', fit: BoxFit.cover);
+  }
+}
+
+class _SecondImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/fourth_02.jpg', fit: BoxFit.cover);
+  }
+}
+
+class _MapButton extends StatelessWidget {
+  final naverAddress =
+      'https://map.naver.com/p/entry/place/34585318?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507052126&locale=ko&svcName=map_pcv5&searchType=place&lng=126.9340682&lat=37.3845205&c=15.00,0,0,0,dh';
+  onTapNaverMap() async => await launchUrl(Uri.parse(naverAddress));
+
+  final kakaoAddress =
+      'https://map.kakao.com/?urlX=485337.99999999785&urlY=1079220.9999999998&urlLevel=3&itemId=877653040&q=%EC%9B%A8%EB%94%A9%EA%B7%B8%EB%A3%B9%20%EC%9C%84%EB%8D%94%EC%8A%A4%20%EC%95%88%EC%96%91&srcid=877653040&map_type=TYPE_MAP';
+  onTapKakaoMap() async => await launchUrl(Uri.parse(kakaoAddress));
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      width: double.infinity,
+      height: 120,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          InkWell(
+            onTap: onTapNaverMap,
+            child: Image.asset('assets/images/naver_map.png', scale: 2.5),
+          ),
+          InkWell(
+            onTap: onTapKakaoMap,
+            child: Image.asset('assets/images/kakao_map.png', scale: 2.5),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ThirdImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/images/fourth_03.jpg', fit: BoxFit.cover);
+  }
+}

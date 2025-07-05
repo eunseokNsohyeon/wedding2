@@ -16,7 +16,7 @@ class ThirdWidget extends StatelessWidget {
               cursor: SystemMouseCursors.click,
               child: Image.asset(
                 'assets/images/third_button.png',
-                scale: 2,
+                scale: 2.5,
                 fit: BoxFit.none,
               ),
             ),

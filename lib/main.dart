@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/components/layouts/web_app_layout.dart';
 import 'package:wedding/components/widgets/first.dart';
+import 'package:wedding/components/widgets/fourth.dart';
 import 'package:wedding/components/widgets/second.dart';
 import 'package:wedding/components/widgets/third.dart';
 
@@ -33,7 +34,14 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebAppLayout(
       child: const SingleChildScrollView(
-        child: Column(children: [FirstWidget(), SecondWidget(), ThirdWidget()]),
+        child: Column(
+          children: [
+            FirstWidget(),
+            SecondWidget(),
+            ThirdWidget(),
+            FourthWidget(),
+          ],
+        ),
       ),
     );
   }
