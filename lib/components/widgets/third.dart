@@ -12,7 +12,7 @@ class ThirdWidget extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Image.asset('assets/images/third.jpg', fit: BoxFit.cover),
+        Image.asset('assets/images/third.jpeg', fit: BoxFit.cover),
         Positioned(
           child: Padding(
             padding: const EdgeInsets.only(bottom: 40.0),
