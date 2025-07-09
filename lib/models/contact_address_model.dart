@@ -11,13 +11,12 @@ class ContactAddressModel {
 }
 
 List<ContactAddressModel> groomContactAddresses = [
-  ContactAddressModel(division: '신랑 아버지', name: '이필주', phone: '01056872285'),
-  ContactAddressModel(division: '신랑 어머니', name: '송효숙', phone: '01076872285'),
-  ContactAddressModel(division: '신랑', name: '이우길', phone: '01066832285'),
+  ContactAddressModel(division: '신랑 아버지', name: '최인권', phone: '010-9537-0091'),
+  ContactAddressModel(division: '신랑 어머니', name: '심금란', phone: '010-5063-7773'),
+  ContactAddressModel(division: '신랑', name: '최은석', phone: '010-8288-6538'),
 ];
 
 List<ContactAddressModel> brideContactAddresses = [
-  ContactAddressModel(division: '신부 아버지', name: '임동철', phone: '01052440776'),
-  ContactAddressModel(division: '신부 어머니', name: '오주지', phone: '01037340776'),
-  ContactAddressModel(division: '신부', name: '임은하', phone: '01063280776'),
+  ContactAddressModel(division: '신부 어머니', name: '윤득임', phone: '010-4477-7017'),
+  ContactAddressModel(division: '신부', name: '안소현', phone: '010-8082-7017'),
 ];
